@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bongga Login and Signup Form</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div class="container" id="container">
+  <div class="form-container sign-up-container">
+    <form action="#">
+      <h1>Create Account</h1>
+  <div class="social-container">
+    <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
+    <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
+    <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
+  </div>
+    
+    <span>or use your email for registration</span>
+      <input type="text" id="username" name="username" placeholder="Name" />
+      <input type="text" id="email" name="email" placeholder="Email" />
+      <input type="password" id="password" name="password" placeholder="Password" />
+        <button type="button" id="signUpBtn" onclick="handleSignup()">Sign Up</button>
+     </form>
+    </div>
+    
+    <div class="form-container sign-in-container">
+      <form action="#">
+            <h1>Sign in</h1>
+    <div class="social-container">
+      <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
+      <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
+      <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
+    </div>
+      <span>or use your account</span>
+        <input type="email" id="signInEmail" placeholder="Email" />
+        <input type="password" id="signInPassword" placeholder="Password" />
+      <a href="#">Forgot your password?</a>
+          <button type="button" id="signInBtn">Sign In</button>
+        </form>
+      </div>
+
+      <div class="overlay-container">
+      <div class="overlay">
+      <div class="overlay-panel overlay-left">
+            <h1>Welcome Back!</h1>
+            <p>To keep connected with us, please login with your personal info</p>
+          <button class="ghost" id="signIn">Sign In</button>
+      </div>
+     
+      <div class="overlay-panel overlay-right">
+            <h1>Hello, Friend!</h1>
+            <p>Enter your personal details and start the journey with us</p>
+          <button class="ghost" id="signUp">Sign Up</button>
+        
+        </div>
+      </div>
+    </div>
+  </div>
+
+    <!-- JavaScript -->
+  <script src="script.js"></script>
+
+    <!-- Firebase JavaScript -->
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-app.js";
+    import { getDatabase, ref, set } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-database.js";
+    import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-auth.js";
+
+  const firebaseConfig = {
+   // Your Firebase configuration here
+    apiKey: "AIzaSyCzBtju7FB4fxiQ1HpjfbUCuM7UBrMQ-Ac",
+    authDomain: "revivethrive-993c0.firebaseapp.com",
+    databaseURL: "https://revivethrive-993c0-default-rtdb.firebaseio.com",
+    projectId: "revivethrive-993c0",
+    storageBucket: "revivethrive-993c0.appspot.com",
+    messagingSenderId: "674581177038",
+    appId: "1:674581177038:web:bd4f3ea519783a5e40a69f"
+    };
+
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  const database = getDatabase(app);
+  const auth = getAuth();
+
+function handleSignup() {
+  const uname = document.getElementById("username").value;
+  const uemail = document.getElementById("email").value;
+  const upassword = document.getElementById("password").value;
+
+createUserWithEmailAndPassword(auth, uemail, upassword)
+  .then((userCredential) => {
+  const user = userCredential.user;
+  set(ref(database, "Signup/" + user.uid), {
+  username: uname,
+  email: uemail,
+})
+  .then(() => {
+  alert("Signing Up Successfully!");
+})
+  .catch((error) => {
+  alert("Error saving user data: " + error.message);
+});
+})
+  .catch((error) => {
+  alert("Invalid Signing:" + error.message);
+});
+}
+
+function handleSignIn() {
+  const signInEmail = document.getElementById("signInEmail").value;
+  const signInPassword = document.getElementById("signInPassword").value;
+
+signInWithEmailAndPassword(auth, signInEmail, signInPassword)
+  .then((userCredential) => {
+  const user = userCredential.user;
+  alert('Signed in successfully!');
+                  
+window.location.href = "home.html"
+})
+  .catch((error) => {
+  const errorCode = error.code;
+  const errorMessage = error.message;
+  alert(`Error: ${errorCode} - ${errorMessage}`);
+});
+}
+
+// Add event listeners for Sign Up and Sign In buttons
+  document.getElementById("signUpBtn").addEventListener('click', handleSignup);
+  document.getElementById("signInBtn").addEventListener('click', handleSignIn);
+    
+    </script>
+  </body>
+</html>
