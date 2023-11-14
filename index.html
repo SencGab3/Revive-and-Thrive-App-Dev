@@ -100,7 +100,7 @@ createUserWithEmailAndPassword(auth, uemail, upassword)
   email: uemail,
 })
   .then(() => {
-  alert("Signing Up Successfully!");
+  alert("Signing Up Successfully! Please 'Sign In' your account. Thank you.");
 })
   .catch((error) => {
   alert("Error saving user data: " + error.message);
@@ -118,7 +118,7 @@ function handleSignIn() {
 signInWithEmailAndPassword(auth, signInEmail, signInPassword)
   .then((userCredential) => {
   const user = userCredential.user;
-  alert('Signed in successfully!');
+  alert("Signed in successfully! Click 'OK' to proceed.");
                   
 window.location.href = "home.html"
 })
