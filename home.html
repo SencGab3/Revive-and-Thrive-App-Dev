@@ -1,25 +1,359 @@
 <!DOCTYPE html>
-<html> 
+<html lang="en">
 
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width">
-  <title>Revive and Thrive</title>
+  <meta charset="UTF-8">
+
   <link href="home.css" rel="stylesheet" type="text/css" />
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    integrity="sha512-..." crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <title>Revive & Thrive </title>
 </head>
 
-
-
 <body>
-  <nav class="navbar">
-    <ul>
-    <li> <a  href="index.html">Home Page </a></li>
-    <li> <a  href="about.html">About </a></li>
-    <li> <a  href="product.html">Products </a></li>
-    <li> <a  href="blogs.html">Blogs </a></li>
-    <li> <a  href="contact.html">Contact </a></li>
-    </ul>
-  </nav> 
+
+  <!-- header section -->
+  <header class="header">
+    <a class="logo"><i class="fa fa-recycle"></i>Revive and Thrive</a>
+
+    <nav class="navbar">
+      <a href="home.html">Home Page</a>
+      <a href="features.html">Features</a>
+      <a href="products.html">Products</a>
+      <a href="categories.html">Categories</a>
+      <a href="review.html">Review</a>
+      <a href="blogs.html">Blogs</a>
+    </nav>
+
+    <div class="icons">
+      <div class="fa fa-bars" id="menu-btn"></div>
+      <div class="fa fa-search" id="search-btn"></div>
+      <div class="fa fa-shopping-cart" id="cart-btn"></div>
+      <div class="fa fa-user" id="login-btn"></div>
+    </div>
+
+    <form class="search-form">
+      <input type="search" id="search-box" placeholder="Search here...">
+      <label for="search-box" class="fa fa-search"></label>
+    </form>
+
+    <div class="shopping-cart">
+      <div class="box">
+        <i class="fa fa-trash"></i>
+        <img src="images/products1.jpg" alt="Recycle Nation">
+        <div class="content">
+          <h3>Recycle Nation</h3>
+          <span class="price">P250.00</span>
+          <span class="quantity">Qty: 2</span>
+        </div>
+      </div>
+
+      <div class="box">
+        <i class="fa fa-trash"></i>
+        <img src="images/products2.jpg" alt="Recycle Crafts">
+        <div class="content">
+          <h3>Recycle Crafts</h3>
+          <span class="price">P200.00</span>
+          <span class="quantity">Qty: 2</span>
+        </div>
+      </div>
+
+      <div class="box">
+        <i class="fa fa-trash"></i>
+        <img src="images/products3.jpg" alt="Earth 911">
+        <div class="content">
+          <h3>Earth 911</h3>
+          <span class="price">P270.00</span>
+          <span class="quantity">Qty: 2</span>
+        </div>
+      </div>
+
+      <div class="box">
+        <i class="fa fa-trash"></i>
+        <img src="images/products4.jpg" alt="Waste">
+        <div class="content">
+          <h3>Waste</h3>
+          <span class="price">P1500.00</span>
+          <span class="quantity">Qty: 2</span>
+        </div>
+      </div>
+
+      <div class="total">$20</div>
+      <a href="#" class="btn">Checkout</a>
+    </div>
+  </header>
+  <!-- header section -->
+
+  <!-- banner section -->
+  <section class="home" id="home">
+    <div class="content">
+      <!-- Add content for the banner section -->
+    </div>
+    <h3>Recycled Products For You</h3>
+    <p>Embrace a greener online presence by choosing "ECO FRIENDLY", an eco-conscious platform that prioritizes
+      sustainability and environmental responsibility. Join the movement for a sustainable future by supporting "ECO
+      FRIENDLY", an eco-friendly platform committed to reducing its carbon footprint and promoting environmental
+      awareness.</p>
+    <a href="products.html" class="btn">Explore Products</a>
+  </section>
+  <!-- banner section -->
+
+
+
+  <!-- our features section -->
+  <section class="features" id="features">
+    <h1 class="heading">Our <span>Features</span></h1>
+    <div class="box-container">
+      <div class="box">
+        <img src="images/features1.jpg">
+        <h3>ECO FRIENDLY</h3>
+        <p>Converting waste materials into new products, helping to conserve resources and reduce pollution.</p>
+        <a href="#" class="btn">read more</a>
+      </div>
+      <div class="box">
+        <img src="images/features2.jpg">
+        <h3>FREE DELIVERY</h3>
+        <p>With free delivery options widely available, online shopping has become even more convenient and
+          budget-friendly.</p>
+        <a href="#" class="btn">read more</a>
+      </div>
+      <div class="box">
+        <img src="images/features3.jpg">
+        <h3>BUDGET<span> FRIENDLY</span></h3>
+        <p>With various payment options available, making purchases has become more convenient and accessible than ever.
+        </p>
+        <a href="#" class="btn">read more</a>
+      </div>
+    </div>
+  </section>
+  <!-- our features section -->
+
+  <!-- Product section -->
+
+  <section class="products" id="products">
+    <h1 class="heading"> Our <span> Products </span> </h1>
+    <div class="box-container">
+      <div class="wrapper">
+        <div class="box">
+          <img src="images/products1.jpg" alt="Fresh Orange">
+          <h1> RubChair </h1>
+          <div class="price"> $12.99/- - 15.99/-</div>
+          <div class="stars">
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star-half"></i>
+          </div>
+          <a href="#" class="btn"> Add to Cart </a>
+        </div>
+      </div>
+
+      <div class="wrapper">
+        <div class="box">
+          <img src="images/products2.jpg" alt="Fresh Orange">
+          <h1> Aesthetic Paper </h1>
+          <div class="price"> $11.99/- - 16.99/-</div>
+          <div class="stars">
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star-half"></i>
+          </div>
+          <a href="#" class="btn"> Add to Cart </a>
+        </div>
+      </div>
+
+      <div class="wrapper">
+        <div class="box">
+          <img src="images/products3.jpg" alt="Fresh Orange">
+          <h1> JuBag </h1>
+          <div class="price"> $11.99/- - 16.99/-</div>
+          <div class="stars">
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star-half"></i>
+          </div>
+          <a href="#" class="btn"> Add to Cart </a>
+        </div>
+      </div>
+
+      <div class="wrapper">
+        <div class="box">
+          <img src="images/products4.jpg" alt="Fresh Orange">
+          <h1> Mitsa </h1>
+          <div class="price"> $11.99/- - 16.99/-</div>
+          <div class="stars">
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star-half"></i>
+          </div>
+          <a href="#" class="btn"> Add to Cart </a>
+        </div>
+      </div>
+
+      <!-- Repeat the same structure for other product boxes -->
+
+    </div>
+  </section>
+
+  <!-- Product section -->
+
+  <!-- Product Categories Section -->
+  <section class="categories" id="categories">
+    <h1 class="heading">Product <span> Categories</span></h1>
+    <div class="box-container">
+      <div class="box">
+        <img src="images/image1.jpg" alt="Garden Chairs">
+        <h3>RUBBERS</h3>
+        <p>examples: tire wires, rubber shoes, gloves, mats </p>
+        <a href="#" class="btn">Shop Now</a>
+      </div>
+
+      <div class="box">
+        <img src="images/image2.jpg" alt="Pots">
+        <h3>PAPERS</h3>
+        <p>examples: newspapers, magazine, old notebooks</p>
+        <a href="#" class="btn">Shop Now</a>
+      </div>
+
+      <div class="box">
+        <img src="images/image3.jpg" alt="Pots">
+        <h3>PLASTICS</h3>
+        <p>examples: plastic bottles, straw, wrappers</p>
+        <a href="#" class="btn">Shop Now</a>
+      </div>
+
+      <div class="box">
+        <img src="images/image4.jpg" alt="Pots">
+        <h3>CANS</h3>
+        <p>examples: tin cans, drums, aluminum soda</p>
+        <a href="#" class="btn">Shop Now</a>
+      </div>
+
+      <!-- Add other category boxes as needed -->
+
+    </div>
+  </section>
+  <!-- Product Categories Section -->
+
+  <!-- Blogs -->
+  <section class="blogs" id="blogs">
+    <h1 class="heading">Our <span>Blogs</span></h1>
+    <div class="box-container">
+      <div class="box">
+        <img src="images/blog1.jpg" alt="Blog 1">
+        <div class="content">
+          <div class="icons">
+            <a href="#"><i class="fa fa-user"></i>By Isabel at Grace</a>
+            <a href="#"><i class="fa fa-calendar"></i> 19th November, 2023</a>
+          </div>
+          <h3>Handmade Wallet made with recycled Plastic</h3>
+          <p>Has a leather interior with credit card inserts and two zipper pockets. For easy clean up wipe down with a
+            damp cloth.</p>
+          <a href="#" class="btn">read more</a>
+        </div>
+      </div>
+
+      <div class="box">
+        <img src="images/blog2.jpg" alt="Blog 2">
+        <div class="content">
+          <div class="icons">
+            <a href="#"><i class="fa fa-user"></i> By Etsy</a>
+            <a href="#"><i class="fa fa-calendar"></i> 19th November, 2023</a>
+          </div>
+          <h3>Mema Upcycled Roll-Top Backpack made from Recycled Plastic Bags</h3>
+          <p>This backpack is our all-time favourite. If it's for work, travel or free-time activities, it is also an
+            ideal bag for festival-goers due to its large size and rugged nature.</p>
+          <a href="#" class="btn">read more</a>
+        </div>
+      </div>
+
+      <div class="box">
+        <img src="images/blog3.jpg" alt="Blog 3">
+        <div class="content">
+          <div class="icons">
+            <a href="#"><i class="fa fa-user"></i> By Vishma Maharaj</a>
+            <a href="#"><i class="fa fa-calendar"></i> 19th November, 2023</a>
+          </div>
+          <h3>Paper Dress</h3>
+          <p>Paper clothing is garments and accessories made from paper or paper substitutes. Recycled paper or
+            sustainable sources can contribute to environmentally conscious fashion practices, promoting sustainability
+            in the industry.</p>
+          <a href="#" class="btn">read more</a>
+        </div>
+      </div>
+
+      <div class="box">
+        <img src="images/blog4.jpg" alt="Blog 4">
+        <div class="content">
+          <div class="icons">
+            <a href="#"><i class="fa fa-user"></i> By A Piece of Rainbow</a>
+            <a href="#"><i class="fa fa-calendar"></i> 19th November, 2023</a>
+          </div>
+          <h3>Faux Leather Paper Basket Weaving</h3>
+          <p>Beautiful DIY paper basket from recycled paper bags, & secret to make paper look like leather! Easy weaving
+            craft, boho farmhouse home decor & storage!</p>
+          <a href="#" class="btn">read more</a>
+        </div>
+      </div>
+
+      <!-- Add other blog boxes as needed -->
+
+    </div>
+  </section>
+  <!-- Blogs -->
+
+  <!-- Footer Section -->
+  <section class="footer">
+    <div class="box-container">
+      <div class="box">
+        <h3>Groco <i class="fa fa-shopping-basket"></i></h3>
+        <p>Feel free To Follow Us On Our social Media Handlers All The links Are Given Below.</p>
+        <div class="share">
+          <a href="#" class="fa fa-facebook"></a>
+          <a href="#" class="fa fa-twitter"></a>
+          <a href="#" class="fa fa-instagram"></a>
+          <a href="#" class="fa fa-linkedin"></a>
+        </div>
+      </div>
+
+      <div class="box">
+        <h3>Contact Info</h3>
+        <a href="#" class="links"><i class="fa fa-phone"></i>09123456789</a>
+        <a href="#" class="links"><i class="fa fa-phone"></i> 1111-222-333-44</a>
+        <a href="#" class="links"><i class="fa fa-envelope"></i>revivethrive@example.com</a>
+        <a href="#" class="links"><i class="fa fa-map-marker"></i>iloilo, philippin</a>
+      </div>
+
+      <div class="box">
+        <h3>Quick Links</h3>
+        <a href="home.html" class="links"><i class="fa fa-arrow-right"></i>Home</a>
+        <a href="features.html" class="links"><i class="fa fa-arrow-right"></i>Features</a>
+        <a href="products.html" class="links"><i class="fa fa-arrow-right"></i>Products</a>
+        <a href="categories.html" class="links"><i class="fa fa-arrow-right"></i>Categories</a>
+        <a href="review.html" class="links"><i class="fa fa-arrow-right"></i>Review</a>
+        <a href="blogs.html" class="links"><i class="fa fa-arrow-right"></i>Blogs</a>
+      </div>
+
+      <div class="box">
+        <h3>Newsletter</h3>
+        <p>Subscribe for Latest Updates</p>
+
+        <input type="submit" value="Subscribe" class="btn">
+      </div>
+    </div>
+  </section>
+  <!-- Footer Section -->
+
+  <script src="js.js"></script>
 
 </body>
+
 </html>
