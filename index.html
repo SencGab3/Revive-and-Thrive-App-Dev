@@ -15,7 +15,7 @@
     <form action="#">
       <h1>Create Account</h1>
   <div class="social-container">
-    <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
+    <a href="https://www.facebook.com/" class="social"><i class="fab fa-facebook-f"></i></a>
     <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
     <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
   </div>
@@ -24,6 +24,8 @@
       <input type="text" id="username" name="username" placeholder="Name" />
       <input type="text" id="email" name="email" placeholder="Email" />
       <input type="password" id="password" name="password" placeholder="Password" />
+      
+      
         <button type="button" id="signUpBtn" onclick="handleSignup()">Sign Up</button>
      </form>
     </div>
@@ -68,18 +70,17 @@
     <!-- Firebase JavaScript -->
   <script type="module">
     import { initializeApp } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-app.js";
-    import { getDatabase, ref, set } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-database.js";
+    import { getDatabase, ref, set, get } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-database.js"; 
     import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-auth.js";
+    
 
-  const firebaseConfig = {
-   // Your Firebase configuration here
-    apiKey: "AIzaSyCzBtju7FB4fxiQ1HpjfbUCuM7UBrMQ-Ac",
-    authDomain: "revivethrive-993c0.firebaseapp.com",
-    databaseURL: "https://revivethrive-993c0-default-rtdb.firebaseio.com",
-    projectId: "revivethrive-993c0",
-    storageBucket: "revivethrive-993c0.appspot.com",
-    messagingSenderId: "674581177038",
-    appId: "1:674581177038:web:bd4f3ea519783a5e40a69f"
+    const firebaseConfig = {
+      apiKey: "AIzaSyCJ0t-pbqqA-c4qYOkz5ntbvXOCEx6stJ4",
+      authDomain: "recycledmaterials-4bbbe.firebaseapp.com",
+      projectId: "recycledmaterials-4bbbe",
+      storageBucket: "recycledmaterials-4bbbe.appspot.com",
+      messagingSenderId: "423125584619",
+      appId: "1:423125584619:web:107ad1df5b7b94fdf7ccae"
     };
 
   // Initialize Firebase
@@ -87,50 +88,66 @@
   const database = getDatabase(app);
   const auth = getAuth();
 
-function handleSignup() {
-  const uname = document.getElementById("username").value;
-  const uemail = document.getElementById("email").value;
-  const upassword = document.getElementById("password").value;
+    function handleSignup() {
+        const uname = document.getElementById("username").value;
+        const uemail = document.getElementById("email").value;
+        const upassword = document.getElementById("password").value;
+        const userType = document.getElementById("userType").value; // Get the selected user type
 
-createUserWithEmailAndPassword(auth, uemail, upassword)
-  .then((userCredential) => {
-  const user = userCredential.user;
-  set(ref(database, "Signup/" + user.uid), {
-  username: uname,
-  email: uemail,
-})
-  .then(() => {
-  alert("Signing Up Successfully! Please 'Sign In' your account. Thank you.");
-})
-  .catch((error) => {
-  alert("Error saving user data: " + error.message);
-});
-})
-  .catch((error) => {
-  alert("Invalid Signing:" + error.message);
-});
-}
-
+        createUserWithEmailAndPassword(auth, uemail, upassword)
+            .then((userCredential) => {
+                const user = userCredential.user;
+                set(ref(database, "Signup/" + user.uid), {
+                    username: uname,
+                    email: uemail,
+                    userType: userType // Include userType in the data to be saved
+                })
+                .then(() => {
+                    alert("Signing Up Successfully! Please 'Sign In' your account. Thank you."); 
+                })
+                .catch((error) => {
+                    alert("Error saving user data: " + error.message);
+                });
+            })
+            .catch((error) => {
+                alert("Invalid Signing:" + error.message);
+            });
+    } 
+    
 function handleSignIn() {
   const signInEmail = document.getElementById("signInEmail").value;
   const signInPassword = document.getElementById("signInPassword").value;
 
-signInWithEmailAndPassword(auth, signInEmail, signInPassword)
-  .then((userCredential) => {
-  const user = userCredential.user;
-  alert("Signed in successfully! Click 'OK' to proceed.");
-                  
-window.location.href = "home.html"
-})
-  .catch((error) => {
-  const errorCode = error.code;
-  const errorMessage = error.message;
-  alert(`Error: ${errorCode} - ${errorMessage}`);
-});
-}
+    signInWithEmailAndPassword(auth, signInEmail, signInPassword)
+            .then((userCredential) => {
+                // Correctly get the user from userCredential
+                const user = userCredential.user;
+
+                // Check userType and redirect accordingly
+                const userRef = ref(database, `Signup/${user.uid}`);
+                get(userRef)
+                    .then((snapshot) => {
+                        const userType = snapshot.val().userType;
+                        if (userType === "admin") {
+                            window.location.href = "admin.html";
+                        } else {
+                            window.location.href = "home.html";
+                        }
+                    })
+                    .catch((error) => {
+                        console.error("Error getting user data:", error);
+                    });
+            })
+      .catch((error) => {
+          console.error("Error signing in:", error);
+          const errorCode = error.code;
+          const errorMessage = error.message;
+          alert(`Error: ${errorCode} - ${errorMessage}`);
+      });
+    }
 
 // Add event listeners for Sign Up and Sign In buttons
-  document.getElementById("signUpBtn").addEventListener('click', handleSignup);
+    document.getElementById("signUpBtn").addEventListener('click', handleSignup);
   document.getElementById("signInBtn").addEventListener('click', handleSignIn);
     
     </script>
